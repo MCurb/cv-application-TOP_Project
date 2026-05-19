@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
 
-export function GralForm({ onFormSubmit }) {
+export function GralForm({ onFormSubmit, isActive, id }) {
   const [gralInfoInputValues, setGralInfoInputValues] = useState({
     fullName: "",
     email: "",
@@ -16,11 +16,11 @@ export function GralForm({ onFormSubmit }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    onFormSubmit(gralInfoInputValues)
+    onFormSubmit(gralInfoInputValues, e);
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form data-form-id={id} className={isActive ? "visible" : "hidden"} onSubmit={onSubmit}>
       <fieldset>
         <legend>General Information:</legend>
         <Input

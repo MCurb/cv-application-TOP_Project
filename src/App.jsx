@@ -20,6 +20,26 @@ function App() {
     studyDate: "",
   });
 
+  const [activeForms, setActiveForms] = useState([gralInfo.id, education.id]);
+
+  function handleFormSubmit(inputData, e) {
+    const { dataset } = e.target;
+    setActiveForms(activeForms.filter((formId) => formId !== dataset.formId));
+
+    if (dataset.formId === gralInfo.id) {
+      setGralInfo({ ...gralInfo, ...inputData });
+    }
+
+    if (dataset.formId === education.id) {
+      setEducation({ ...education, ...inputData });
+    }
+  }
+
+  function handleEditBtn(e) {
+    const { dataset } = e.target;
+    setActiveForms([...activeForms, dataset.id])
+  }
+
   return (
     <>
       <Card>
@@ -27,16 +47,26 @@ function App() {
         <p>Full Name: {gralInfo.fullName}</p>
         <p>Email: {gralInfo.email}</p>
         <p>Number: {gralInfo.number}</p>
-        <Button text={"Edit"} id={gralInfo.id} />
+        <Button onClick={handleEditBtn} text={"Edit"} id={gralInfo.id} />
       </Card>
       <Card>
         <h1>Education:</h1>
         <p>School Name: {education.schoolName}</p>
         <p>Title: {education.title}</p>
         <p>Study Date: {education.studyDate}</p>
+        <Button onClick={handleEditBtn} text={"Edit"} id={education.id} />
       </Card>
-      <GralForm onFormSubmit={(inputData) => setGralInfo({...gralInfo, ...inputData})} />
-      <EducForm onFormSubmit={(inputData) => setEducation({...education, ...inputData})}/>
+
+      <GralForm
+        id={gralInfo.id}
+        isActive={activeForms.includes(gralInfo.id)}
+        onFormSubmit={(inputData, e) => handleFormSubmit(inputData, e)}
+      />
+      <EducForm
+        id={education.id}
+        isActive={activeForms.includes(education.id)}
+        onFormSubmit={(inputData, e) => handleFormSubmit(inputData, e)}
+      />
     </>
   );
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
 
-export function EducForm({ onFormSubmit }) {
+export function EducForm({ onFormSubmit, isActive, id }) {
   const [educationInputValues, setEducationInputValues] = useState({
     schoolName: "",
     title: "",
@@ -16,11 +16,11 @@ export function EducForm({ onFormSubmit }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    onFormSubmit(educationInputValues);
+    onFormSubmit(educationInputValues, e);
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form data-form-id={id} className={isActive ? "visible" : "hidden"} onSubmit={onSubmit}>
       <fieldset>
         <legend>Education:</legend>
         <Input
