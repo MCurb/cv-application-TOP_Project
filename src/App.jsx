@@ -1,9 +1,10 @@
-import { act, useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import { Card } from "./components/Card";
-import { Button } from "./components/Button";
+import { Card } from "./components/ui/Card";
+import { Button } from "./components/ui/Button";
 import { GralForm } from "./components/GralForm";
 import { EducForm } from "./components/EducForm";
+import { PracticalExpForm } from "./components/PracticalExpForm";
 
 function App() {
   const initialGralInfo = {
@@ -24,7 +25,22 @@ function App() {
   };
   const [education, setEducation] = useState(initialEducationInfo);
 
-  const [activeForms, setActiveForms] = useState([gralInfo.id, education.id]);
+  const initialPractExpInfo = {
+    id: crypto.randomUUID(),
+    renderKey: crypto.randomUUID(),
+    companyName: "",
+    positionTitle: "",
+    mainResp: "",
+    fromDate: "",
+    toDate: "",
+  };
+  const [practExp, setPractExp] = useState(initialPractExpInfo);
+
+  const [activeForms, setActiveForms] = useState([
+    gralInfo.id,
+    education.id,
+    practExp.id,
+  ]);
 
   function handleFormSubmit(inputData, e) {
     const { dataset } = e.target;
@@ -36,6 +52,10 @@ function App() {
 
     if (dataset.formId === education.id) {
       setEducation({ ...education, ...inputData });
+    }
+
+    if (dataset.formId === practExp.id) {
+      setPractExp({ ...practExp, ...inputData });
     }
   }
 
@@ -50,7 +70,7 @@ function App() {
     const { dataset } = e.target;
     if (dataset.id === gralInfo.id) {
       setGralInfo({ ...initialGralInfo, id: gralInfo.id });
-      
+
       if (!activeForms.includes(gralInfo.id)) {
         setActiveForms([...activeForms, gralInfo.id]);
       }
@@ -60,6 +80,13 @@ function App() {
 
       if (!activeForms.includes(education.id)) {
         setActiveForms([...activeForms, education.id]);
+      }
+    }
+    if (dataset.id === practExp.id) {
+      setPractExp({ ...initialPractExpInfo, id: practExp.id });
+
+      if (!activeForms.includes(practExp.id)) {
+        setActiveForms([...activeForms, practExp.id]);
       }
     }
   }
@@ -82,6 +109,16 @@ function App() {
         <Button onClick={handleEditBtn} text={"Edit"} id={education.id} />
         <Button onClick={handleDeleteBtn} text={"Delete"} id={education.id} />
       </Card>
+      <Card>
+        <h1>Practical Experience</h1>
+        <p>Company Name: {practExp.companyName}</p>
+        <p>Job Title: {practExp.positionTitle}</p>
+        <p>Main Responsibilities: {practExp.mainResp}</p>
+        <p>From: {practExp.fromDate}</p>
+        <p>To: {practExp.toDate}</p>
+        <Button onClick={handleEditBtn} text={"Edit"} id={practExp.id} />
+        <Button onClick={handleDeleteBtn} text={"Delete"} id={practExp.id} />
+      </Card>
 
       <GralForm
         key={gralInfo.renderKey}
@@ -93,6 +130,12 @@ function App() {
         key={education.renderKey}
         id={education.id}
         isActive={activeForms.includes(education.id)}
+        onFormSubmit={(inputData, e) => handleFormSubmit(inputData, e)}
+      />
+      <PracticalExpForm
+        key={practExp.renderKey}
+        id={practExp.id}
+        isActive={activeForms.includes(practExp.id)}
         onFormSubmit={(inputData, e) => handleFormSubmit(inputData, e)}
       />
     </>
