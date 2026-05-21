@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { act, useState } from "react";
 import "./App.css";
 import { Card } from "./components/Card";
 import { Button } from "./components/Button";
@@ -6,19 +6,23 @@ import { GralForm } from "./components/GralForm";
 import { EducForm } from "./components/EducForm";
 
 function App() {
-  const [gralInfo, setGralInfo] = useState({
+  const initialGralInfo = {
     id: crypto.randomUUID(),
+    renderKey: crypto.randomUUID(),
     fullName: "",
     email: "",
     number: "",
-  });
+  };
+  const [gralInfo, setGralInfo] = useState(initialGralInfo);
 
-  const [education, setEducation] = useState({
+  const initialEducationInfo = {
     id: crypto.randomUUID(),
+    renderKey: crypto.randomUUID(),
     schoolName: "",
     title: "",
     studyDate: "",
-  });
+  };
+  const [education, setEducation] = useState(initialEducationInfo);
 
   const [activeForms, setActiveForms] = useState([gralInfo.id, education.id]);
 
@@ -37,7 +41,27 @@ function App() {
 
   function handleEditBtn(e) {
     const { dataset } = e.target;
-    setActiveForms([...activeForms, dataset.id])
+    if (activeForms.includes(dataset.id)) return;
+
+    setActiveForms([...activeForms, dataset.id]);
+  }
+
+  function handleDeleteBtn(e) {
+    const { dataset } = e.target;
+    if (dataset.id === gralInfo.id) {
+      setGralInfo({ ...initialGralInfo, id: gralInfo.id });
+      
+      if (!activeForms.includes(gralInfo.id)) {
+        setActiveForms([...activeForms, gralInfo.id]);
+      }
+    }
+    if (dataset.id === education.id) {
+      setEducation({ ...initialEducationInfo, id: education.id });
+
+      if (!activeForms.includes(education.id)) {
+        setActiveForms([...activeForms, education.id]);
+      }
+    }
   }
 
   return (
@@ -48,6 +72,7 @@ function App() {
         <p>Email: {gralInfo.email}</p>
         <p>Number: {gralInfo.number}</p>
         <Button onClick={handleEditBtn} text={"Edit"} id={gralInfo.id} />
+        <Button onClick={handleDeleteBtn} text={"Delete"} id={gralInfo.id} />
       </Card>
       <Card>
         <h1>Education:</h1>
@@ -55,14 +80,17 @@ function App() {
         <p>Title: {education.title}</p>
         <p>Study Date: {education.studyDate}</p>
         <Button onClick={handleEditBtn} text={"Edit"} id={education.id} />
+        <Button onClick={handleDeleteBtn} text={"Delete"} id={education.id} />
       </Card>
 
       <GralForm
+        key={gralInfo.renderKey}
         id={gralInfo.id}
         isActive={activeForms.includes(gralInfo.id)}
         onFormSubmit={(inputData, e) => handleFormSubmit(inputData, e)}
       />
       <EducForm
+        key={education.renderKey}
         id={education.id}
         isActive={activeForms.includes(education.id)}
         onFormSubmit={(inputData, e) => handleFormSubmit(inputData, e)}
