@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button } from "./Button";
-import { Input } from "./Input";
+import { Button } from "../ui/Button";
+import { Input } from "../ui/Input";
 
 export function EducForm({ onFormSubmit, isActive, id }) {
   const [educationInputValues, setEducationInputValues] = useState({
@@ -20,7 +20,11 @@ export function EducForm({ onFormSubmit, isActive, id }) {
   }
 
   return (
-    <form data-form-id={id} className={isActive ? "visible" : "hidden"} onSubmit={onSubmit}>
+    <form
+      data-form-id={id}
+      className={isActive ? "visible" : "hidden"}
+      onSubmit={onSubmit}
+    >
       <fieldset>
         <legend>Education:</legend>
         <Input

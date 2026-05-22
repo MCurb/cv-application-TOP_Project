@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./App.css";
 import { Card } from "./components/ui/Card";
 import { Button } from "./components/ui/Button";
-import { GralForm } from "./components/GralForm";
-import { EducForm } from "./components/EducForm";
-import { PracticalExpForm } from "./components/PracticalExpForm";
+import { GralForm } from "./components/forms/GralForm";
+import { EducForm } from "./components/forms/EducForm";
+import { PracticalExpForm } from "./components/forms/PracticalExpForm";
 
 function App() {
   const initialGralInfo = {
@@ -101,6 +101,10 @@ function App() {
         <Button onClick={handleEditBtn} text={"Edit"} id={gralInfo.id} />
         <Button onClick={handleDeleteBtn} text={"Delete"} id={gralInfo.id} />
       </Card>
+      {/* I should add more cards if the user wants to add more jobs or more schools
+      Instead of just closing the forms. I should also change the layout, so it
+      looks like it's a resume on a paper, and the forms on the left if it's
+      a wide screen */}
       <Card>
         <h1>Education:</h1>
         <p>School Name: {education.schoolName}</p>
