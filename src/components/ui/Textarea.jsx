@@ -5,12 +5,14 @@ export function Textarea({
   id,
   datasetId,
   name,
+  value,
   required,
 }) {
   return (
     <>
       <label htmlFor={id}>{label}</label>
       <textarea
+        value={value}
         placeholder={placeholder}
         onChange={onChange}
         id={id}

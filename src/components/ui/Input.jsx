@@ -6,6 +6,7 @@ export function Input({
   id,
   datasetId,
   name,
+  value,
   required,
 }) {
   return (
@@ -15,6 +16,7 @@ export function Input({
         type={type}
         placeholder={placeholder}
         onChange={onChange}
+        value={value}
         id={id}
         name={name}
         data-form-id={datasetId}

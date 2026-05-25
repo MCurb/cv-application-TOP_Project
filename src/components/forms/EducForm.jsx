@@ -1,35 +1,29 @@
-import { useState } from "react";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 
-export function EducForm({ onFormSubmit, isActive, id }) {
-  const [educationInputValues, setEducationInputValues] = useState({
-    schoolName: "",
-    title: "",
-    studyDate: "",
-  });
-
+export function EducForm({ onSubmit, isActive, inputsData, onChange, id }) {
   function onInputChange(e) {
     const { name, value } = e.target;
-    setEducationInputValues({ ...educationInputValues, [name]: value });
+    onChange({ ...inputsData, [name]: value });
   }
 
-  function onSubmit(e) {
+  function handleFormSubmit(e) {
     e.preventDefault();
-    onFormSubmit(educationInputValues, e);
+    onSubmit(inputsData);
   }
 
   return (
     <form
       data-form-id={id}
       className={isActive ? "visible" : "hidden"}
-      onSubmit={onSubmit}
+      onSubmit={handleFormSubmit}
     >
       <fieldset>
         <legend>Education:</legend>
         <Input
           label={"School Name:"}
           placeholder={"MIT"}
+          value={inputsData.schoolName}
           id={"input-sch-name"}
           name={"schoolName"}
           onChange={onInputChange}
@@ -38,6 +32,7 @@ export function EducForm({ onFormSubmit, isActive, id }) {
         <Input
           label={"Title:"}
           placeholder={"Sofware Engineer"}
+          value={inputsData.title}
           id={"input-title"}
           name={"title"}
           onChange={onInputChange}
@@ -45,6 +40,7 @@ export function EducForm({ onFormSubmit, isActive, id }) {
         ></Input>
         <Input
           label={"Study Date:"}
+          value={inputsData.studyDate}
           id={"input-study-date"}
           name={"studyDate"}
           onChange={onInputChange}

@@ -1,32 +1,29 @@
-import { useState } from "react";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 import { Textarea } from "../ui/Textarea";
 
-export function PracticalExpForm({ onFormSubmit, isActive, id }) {
-  const [practExpInputValues, setPractExpInputValues] = useState({
-    companyName: "",
-    positionTitle: "",
-    mainResp: "",
-    fromDate: "",
-    toDate: "",
-  });
-
-  function onChange(e) {
+export function PracticalExpForm({
+  onSubmit,
+  isActive,
+  inputsData,
+  onChange,
+  id,
+}) {
+  function onInputChange(e) {
     const { name, value } = e.target;
-    setPractExpInputValues({ ...practExpInputValues, [name]: value });
+    onChange({ ...inputsData, [name]: value });
   }
 
-  function onSubmit(e) {
+  function handleFormSubmit(e) {
     e.preventDefault();
-    onFormSubmit(practExpInputValues, e);
+    onSubmit(inputsData);
   }
 
   return (
     <form
       data-form-id={id}
       className={isActive ? "visible" : "hidden"}
-      onSubmit={onSubmit}
+      onSubmit={handleFormSubmit}
     >
       <fieldset>
         <legend>Practical Experience:</legend>
@@ -35,7 +32,8 @@ export function PracticalExpForm({ onFormSubmit, isActive, id }) {
           placeholder={"Google"}
           id={"input-company-name"}
           name={"companyName"}
-          onChange={onChange}
+          value={inputsData.companyName}
+          onChange={onInputChange}
           required
         ></Input>
         <Input
@@ -43,14 +41,16 @@ export function PracticalExpForm({ onFormSubmit, isActive, id }) {
           placeholder={"Front-End Developer"}
           id={"input-position-title"}
           name={"positionTitle"}
-          onChange={onChange}
+          value={inputsData.positionTitle}
+          onChange={onInputChange}
           required
         ></Input>
         <Textarea
           label={"Main Responsibilities:"}
           id={"txtarea-respon"}
           name={"mainResp"}
-          onChange={onChange}
+          value={inputsData.mainResp}
+          onChange={onInputChange}
         />
         <fieldset>
           <legend>Date you worked on:</legend>
@@ -58,14 +58,16 @@ export function PracticalExpForm({ onFormSubmit, isActive, id }) {
             label={"From:"}
             id={"input-from-date"}
             name={"fromDate"}
-            onChange={onChange}
+            value={inputsData.fromDate}
+            onChange={onInputChange}
             type="date"
           ></Input>
           <Input
             label={"To:"}
             id={"input-to-date"}
             name={"toDate"}
-            onChange={onChange}
+            value={inputsData.toDate}
+            onChange={onInputChange}
             type="date"
           ></Input>
         </fieldset>
