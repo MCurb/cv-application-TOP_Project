@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { MinCard } from "../ui/MinCard";
-import { Button } from "../ui/Button";
 import { GralForm } from "./GralForm";
 import { EducForm } from "./EducForm";
 import { PracticalExpForm } from "./PracticalExpForm";
-
 
 export function FormSection({ sectionType, entries, onSubmit }) {
   const educInitData = {
@@ -81,19 +79,25 @@ export function FormSection({ sectionType, entries, onSubmit }) {
       {isIterable &&
         sectionType === "education" &&
         entries.map((entry) => (
-          <MinCard key={entry.id}>
+          <MinCard
+            key={entry.id}
+            onEdit={handleEditBtn}
+            onDelete={handleDeleteBtn}
+            id={entry.id}
+          >
             <h4>{entry.schoolName}</h4>
-            <Button onClick={handleEditBtn} text={"Edit"} id={entry.id} />
-            <Button onClick={handleDeleteBtn} text={"Delete"} id={entry.id} />
           </MinCard>
         ))}
       {isIterable &&
         sectionType === "work" &&
         entries.map((entry) => (
-          <MinCard key={entry.id}>
+          <MinCard
+            key={entry.id}
+            onEdit={handleEditBtn}
+            onDelete={handleDeleteBtn}
+            id={entry.id}
+          >
             <h4>{entry.companyName}</h4>
-            <Button onClick={handleEditBtn} text={"Edit"} id={entry.id} />
-            <Button onClick={handleDeleteBtn} text={"Delete"} id={entry.id} />
           </MinCard>
         ))}
 
