@@ -6,7 +6,7 @@ export function InfoSection({ entries, sectionType }) {
     work: "Professional Experience",
   };
   return (
-    <>
+    <section className="resume-form">
       <h2>{sectionTitle[sectionType]}</h2>
       <ul>
         {sectionType === "education" &&
@@ -29,6 +29,6 @@ export function InfoSection({ entries, sectionType }) {
             </Card>
           ))}
       </ul>
-    </>
+    </section>
   );
 }

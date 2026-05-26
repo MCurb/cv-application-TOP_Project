@@ -6,8 +6,10 @@ import { Resume } from "./components/resume/Resume";
 const initGnralInfo = {
   id: crypto.randomUUID(),
   fullName: "Marcos Curbeco",
+  requestedPosit: "Web Developer",
   email: "curbecomarcos@gmail.com",
   number: "564 545 5444",
+  location: "SF, CA",
 };
 
 const initEducation = [

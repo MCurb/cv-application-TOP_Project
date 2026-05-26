@@ -15,7 +15,7 @@ export function GralForm({ onSubmit, isActive, inputsData, onChange }) {
   return (
     <Form isActive={isActive} onSubmit={handleFormSubmit}>
       <Input
-        label={"Full Name:"}
+        label={"Full Name"}
         placeholder={"Marcos Curbeco"}
         id={"input-name"}
         name={"fullName"}
@@ -24,7 +24,16 @@ export function GralForm({ onSubmit, isActive, inputsData, onChange }) {
         required
       ></Input>
       <Input
-        label={"Email:"}
+        label={"Requested Position"}
+        placeholder={"Sofware Engineer"}
+        id={"input-requested-position"}
+        name={"requestedPosit"}
+        value={inputsData.requestedPosit}
+        onChange={onInputChange}
+        required
+      ></Input>
+      <Input
+        label={"Email"}
         placeholder={"youremail@gmail.com"}
         id={"input-email"}
         name={"email"}
@@ -34,7 +43,7 @@ export function GralForm({ onSubmit, isActive, inputsData, onChange }) {
         required={inputsData.number === "" && true}
       ></Input>
       <Input
-        label={"Phone Number:"}
+        label={"Phone Number"}
         placeholder={"548 654 1526"}
         id={"input-number"}
         name={"number"}
@@ -42,6 +51,14 @@ export function GralForm({ onSubmit, isActive, inputsData, onChange }) {
         onChange={onInputChange}
         type="tel"
         required={inputsData.email === "" && true}
+      ></Input>
+      <Input
+        label={"Location"}
+        placeholder={"SF, CA"}
+        id={"input-location"}
+        name={"location"}
+        value={inputsData.location}
+        onChange={onInputChange}
       ></Input>
     </Form>
   );

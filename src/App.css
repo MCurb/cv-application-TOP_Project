@@ -2,10 +2,12 @@
   --bg-color: rgba(243, 244, 246);
   --card-bg: rgba(255, 255, 255);
   --card-radious: 0.5rem;
-  --accent-color: rgba(24, 127, 245);
+  --accent-color: rgba(0, 80, 80);
   --border-color: hsl(0deg 0% 60%);
+  --txt-light: rgba(255, 255, 255);
 
   --btn-padding: 4px 16px;
+  --section-padding: 1.25rem;
   --items-gap: 12px;
 }
 
@@ -13,6 +15,7 @@
   display: flex;
   flex-wrap: wrap;
   background-color: var(--bg-color);
+  padding: var(--section-padding);
 }
 
 .hidden {

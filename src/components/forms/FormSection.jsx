@@ -24,8 +24,10 @@ export function FormSection({ sectionType, entries, onSubmit }) {
 
   const gralInfoInitData = {
     fullName: "",
+    requestedPosit: "",
     email: "",
     number: "",
+    location: "",
   };
   const [gralInfoInputs, setGralInfoInputs] = useState(gralInfoInitData);
 
