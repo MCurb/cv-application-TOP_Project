@@ -10,7 +10,7 @@ export function Input({
   required,
 }) {
   return (
-      <div>
+      <div className="label-input-group">
         <label htmlFor={id}>{label}</label>
         <input
           type={type}

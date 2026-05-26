@@ -8,7 +8,7 @@
 .form-section {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--items-gap);
   background-color: var(--card-bg);
   border-radius: var(--card-radious);
   padding: 1rem;
@@ -18,7 +18,7 @@
 form.hidden {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--items-gap);
 }
 
 input,
@@ -33,6 +33,11 @@ label {
   font-weight: 700;
 }
 
+.label-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
 .form-actions {
   display: flex;
   justify-content: space-between;
@@ -43,7 +48,7 @@ label {
   padding: var(--btn-padding);
   border-radius: var(--card-radious);
   background-color: transparent;
-  border: 1px solid rgb(118 117 117);
+  border: 1px solid var(--border-color);
   width: var(--btn-width);
   font-weight: 600;
   font-size: 14px;
@@ -57,13 +62,13 @@ label {
 }
 
 .form-actions .cancel-btn {
-  color: rgb(118 117 117);
+  color: hsl(0, 0%, 40%);
 }
 
 .form-section .min-card {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--items-gap);
 
   padding: var(--btn-padding);
   border-radius: var(--card-radious);
@@ -78,7 +83,7 @@ label {
 
 .min-card .card-actions {
   display: flex;
-  gap: 12px;
+  gap: var(--items-gap);
 }
 
 .card-actions button {
@@ -88,4 +93,53 @@ label {
 
 .card-actions button svg {
   pointer-events: none;
+}
+
+fieldset {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--items-gap);
+  border-radius: var(--card-radious);
+  border: 1px solid var(--border-color);
+  padding: var(--btn-padding);
+  padding-bottom: 12px;
+}
+
+fieldset legend {
+  font-weight: 700;
+}
+
+@media (max-width: 750px) {
+  fieldset {
+    flex-direction: column;
+  }
+
+  fieldset .label-input-group {
+    flex-direction: row;
+    flex: 1;
+    gap: var(--items-gap);
+  }
+
+  fieldset .label-input-group input {
+    flex: 1;
+  }
+
+  fieldset .label-input-group label {
+    flex-basis: 60px;
+  }
+}
+
+@media (max-width: 550px) {
+  fieldset .label-input-group {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  fieldset .label-input-group input {
+    flex: initial;
+  }
+
+  fieldset .label-input-group label {
+    flex-basis: initial;
+  }
 }

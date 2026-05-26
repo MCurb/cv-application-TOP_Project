@@ -3,8 +3,10 @@
   --card-bg: rgba(255, 255, 255);
   --card-radious: 0.5rem;
   --accent-color: rgba(24, 127, 245);
+  --border-color: hsl(0deg 0% 60%);
 
   --btn-padding: 4px 16px;
+  --items-gap: 12px;
 }
 
 #root {
