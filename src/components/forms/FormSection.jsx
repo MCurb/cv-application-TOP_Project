@@ -84,10 +84,9 @@ export function FormSection({ sectionType, entries, onSubmit }) {
               key={entry.id}
               onEdit={handleEditBtn}
               onDelete={handleDeleteBtn}
+              cardTitle={entry.schoolName}
               id={entry.id}
-            >
-              <h4>{entry.schoolName}</h4>
-            </MinCard>
+            />
           ))}
         {isIterable &&
           sectionType === "work" &&
@@ -96,10 +95,9 @@ export function FormSection({ sectionType, entries, onSubmit }) {
               key={entry.id}
               onEdit={handleEditBtn}
               onDelete={handleDeleteBtn}
+              cardTitle={entry.companyName}
               id={entry.id}
-            >
-              <h4>{entry.companyName}</h4>
-            </MinCard>
+            />
           ))}
 
         {sectionType === "generalInfo" && (

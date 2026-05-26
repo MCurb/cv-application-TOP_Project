@@ -1,4 +1,4 @@
-export function Button({ type = "button", className, text, onClick, onHover, id}) {
+export function Button({ type = "button", className, text, onClick, onHover, id, children}) {
   return (
     <button
       type={type}
@@ -8,6 +8,7 @@ export function Button({ type = "button", className, text, onClick, onHover, id}
       data-id={id}
     >
       {text}
+      {children}
     </button>
   );
 }

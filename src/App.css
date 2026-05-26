@@ -3,6 +3,8 @@
   --card-bg: rgba(255, 255, 255);
   --card-radious: 0.5rem;
   --accent-color: rgba(24, 127, 245);
+
+  --btn-padding: 4px 16px;
 }
 
 #root {

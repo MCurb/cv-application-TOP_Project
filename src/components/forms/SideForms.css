@@ -40,7 +40,7 @@ label {
 }
 
 .form-actions button {
-  padding: 4px 16px;
+  padding: var(--btn-padding);
   border-radius: var(--card-radious);
   background-color: transparent;
   border: 1px solid rgb(118 117 117);
@@ -58,4 +58,34 @@ label {
 
 .form-actions .cancel-btn {
   color: rgb(118 117 117);
+}
+
+.form-section .min-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: var(--btn-padding);
+  border-radius: var(--card-radious);
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.min-card-title {
+  font-weight: 700;
+}
+
+.min-card .card-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.card-actions button {
+  background-color: transparent;
+  border: none;
+}
+
+.card-actions button svg {
+  pointer-events: none;
 }
