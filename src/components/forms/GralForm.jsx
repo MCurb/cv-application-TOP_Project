@@ -40,7 +40,7 @@ export function GralForm({ onSubmit, isActive, inputsData, onChange }) {
         name={"number"}
         value={inputsData.number}
         onChange={onInputChange}
-        type="number"
+        type="tel"
         required={inputsData.email === "" && true}
       ></Input>
     </Form>
