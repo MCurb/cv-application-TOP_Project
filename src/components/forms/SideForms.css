@@ -1,0 +1,61 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--card-bg);
+  border-radius: var(--card-radious);
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+form.hidden {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input,
+textarea {
+  padding: 4px 12px;
+  border-radius: var(--card-radious);
+  border: none;
+  background-color: var(--bg-color);
+}
+
+label {
+  font-weight: 700;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  --btn-width: 5.375rem;
+}
+
+.form-actions button {
+  padding: 4px 16px;
+  border-radius: var(--card-radious);
+  background-color: transparent;
+  border: 1px solid rgb(118 117 117);
+  width: var(--btn-width);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-actions .submit-btn {
+  background-color: var(--accent-color);
+  color: var(--card-bg);
+  border: none;
+  width: calc(var(--btn-width) + 2px);
+}
+
+.form-actions .cancel-btn {
+  color: rgb(118 117 117);
+}

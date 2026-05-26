@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MinCard } from "../ui/MinCard";
 import { GralForm } from "./GralForm";
 import { EducForm } from "./EducForm";
-import { PracticalExpForm } from "./PracticalExpForm";
+import { ExperienceForm } from "./ExperienceForm";
 
 export function FormSection({ sectionType, entries, onSubmit }) {
   const educInitData = {
@@ -32,7 +32,7 @@ export function FormSection({ sectionType, entries, onSubmit }) {
   const sectionTitle = {
     generalInfo: "Personal Details",
     education: "Education",
-    work: "Professional Experience",
+    work: "Experience",
   };
 
   const isIterable = Array.isArray(entries);
@@ -75,53 +75,55 @@ export function FormSection({ sectionType, entries, onSubmit }) {
 
   return (
     <>
-      <h2>{sectionTitle[sectionType]}</h2>
-      {isIterable &&
-        sectionType === "education" &&
-        entries.map((entry) => (
-          <MinCard
-            key={entry.id}
-            onEdit={handleEditBtn}
-            onDelete={handleDeleteBtn}
-            id={entry.id}
-          >
-            <h4>{entry.schoolName}</h4>
-          </MinCard>
-        ))}
-      {isIterable &&
-        sectionType === "work" &&
-        entries.map((entry) => (
-          <MinCard
-            key={entry.id}
-            onEdit={handleEditBtn}
-            onDelete={handleDeleteBtn}
-            id={entry.id}
-          >
-            <h4>{entry.companyName}</h4>
-          </MinCard>
-        ))}
+      <div className="form-section">
+        <h2>{sectionTitle[sectionType]}</h2>
+        {isIterable &&
+          sectionType === "education" &&
+          entries.map((entry) => (
+            <MinCard
+              key={entry.id}
+              onEdit={handleEditBtn}
+              onDelete={handleDeleteBtn}
+              id={entry.id}
+            >
+              <h4>{entry.schoolName}</h4>
+            </MinCard>
+          ))}
+        {isIterable &&
+          sectionType === "work" &&
+          entries.map((entry) => (
+            <MinCard
+              key={entry.id}
+              onEdit={handleEditBtn}
+              onDelete={handleDeleteBtn}
+              id={entry.id}
+            >
+              <h4>{entry.companyName}</h4>
+            </MinCard>
+          ))}
 
-      {sectionType === "generalInfo" && (
-        <GralForm
-          inputsData={gralInfoInputs}
-          onChange={setGralInfoInputs}
-          onSubmit={handleFormSubmit}
-        ></GralForm>
-      )}
-      {sectionType === "education" && (
-        <EducForm
-          inputsData={educInputs}
-          onChange={setEducInputs}
-          onSubmit={handleFormSubmit}
-        ></EducForm>
-      )}
-      {sectionType === "work" && (
-        <PracticalExpForm
-          inputsData={workExpInputs}
-          onChange={setWorkExpInputs}
-          onSubmit={handleFormSubmit}
-        ></PracticalExpForm>
-      )}
+        {sectionType === "generalInfo" && (
+          <GralForm
+            inputsData={gralInfoInputs}
+            onChange={setGralInfoInputs}
+            onSubmit={handleFormSubmit}
+          ></GralForm>
+        )}
+        {sectionType === "education" && (
+          <EducForm
+            inputsData={educInputs}
+            onChange={setEducInputs}
+            onSubmit={handleFormSubmit}
+          ></EducForm>
+        )}
+        {sectionType === "work" && (
+          <ExperienceForm
+            inputsData={workExpInputs}
+            onChange={setWorkExpInputs}
+            onSubmit={handleFormSubmit}
+          ></ExperienceForm>
+        )}
+      </div>
     </>
   );
 }

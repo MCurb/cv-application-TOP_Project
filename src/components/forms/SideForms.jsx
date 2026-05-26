@@ -1,3 +1,4 @@
+import "./SideForms.css";
 import { FormSection } from "./FormSection";
 
 export function SideForms({
@@ -9,24 +10,22 @@ export function SideForms({
   onWorkExpSubmit,
 }) {
   return (
-    <>
-      <aside>
-        <FormSection
-          sectionType={"generalInfo"}
-          entries={generalInfo}
-          onSubmit={onGralFormSubmit}
-        ></FormSection>
-        <FormSection
-          sectionType={"education"}
-          entries={education}
-          onSubmit={onEducationSubmit}
-        ></FormSection>
-        <FormSection
-          sectionType={"work"}
-          entries={workExp}
-          onSubmit={onWorkExpSubmit}
-        ></FormSection>
-      </aside>
-    </>
+    <aside className="sidebar">
+      <FormSection
+        sectionType={"generalInfo"}
+        entries={generalInfo}
+        onSubmit={onGralFormSubmit}
+      ></FormSection>
+      <FormSection
+        sectionType={"education"}
+        entries={education}
+        onSubmit={onEducationSubmit}
+      ></FormSection>
+      <FormSection
+        sectionType={"work"}
+        entries={workExp}
+        onSubmit={onWorkExpSubmit}
+      ></FormSection>
+    </aside>
   );
 }

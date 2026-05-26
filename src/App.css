@@ -1,7 +1,28 @@
+:root {
+  --bg-color: rgba(243, 244, 246);
+  --card-bg: rgba(255, 255, 255);
+  --card-radious: 0.5rem;
+  --accent-color: rgba(24, 127, 245);
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--bg-color);
+}
+
 .hidden {
-    display: none;
+  display: block;
 }
 
 .visible {
-    display: block;
+  display: block;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.resume-cont {
+    flex: 4;
 }
