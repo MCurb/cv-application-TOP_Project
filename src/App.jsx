@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SideForms } from "./components/forms/SideForms";
 import { Resume } from "./components/resume/Resume";
 
@@ -36,7 +36,7 @@ const initWorkExp = [
     id: crypto.randomUUID(),
     companyName: "Google",
     positionTitle: "Front-End",
-    location: 'Louisville KY',
+    location: "Louisville KY",
     mainResp: "- Create better apps",
     fromDate: "02-05-2004",
     toDate: "02-05-2010",
@@ -45,7 +45,7 @@ const initWorkExp = [
     id: crypto.randomUUID(),
     companyName: "Facebook",
     positionTitle: "Back-End",
-    location: 'Louisville KY',
+    location: "Louisville KY",
     mainResp: "- Create stronger apps",
     fromDate: "02-05-2004",
     toDate: "02-05-2010",
@@ -53,9 +53,25 @@ const initWorkExp = [
 ];
 
 function App() {
-  const [generalInfo, setGeneralInfo] = useState(initGnralInfo);
-  const [education, setEducation] = useState(initEducation);
-  const [workExp, setWorkExp] = useState(initWorkExp);
+  const [generalInfo, setGeneralInfo] = useState(() => {
+    const savedInfo = localStorage.getItem("generalInfo");
+    return savedInfo ? JSON.parse(savedInfo) : initGnralInfo;
+  });
+  const [education, setEducation] = useState(() => {
+    const savedInfo = localStorage.getItem("education");
+    return savedInfo ? JSON.parse(savedInfo) : initEducation;
+  });
+  const [workExp, setWorkExp] = useState(() => {
+    const savedInfo = localStorage.getItem("workExp");
+    return savedInfo ? JSON.parse(savedInfo) : initWorkExp;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("generalInfo", JSON.stringify(generalInfo));
+    localStorage.setItem("education", JSON.stringify(education));
+    localStorage.setItem("workExp", JSON.stringify(workExp));
+  }, [generalInfo, education, workExp]);
+
   return (
     <>
       <SideForms
