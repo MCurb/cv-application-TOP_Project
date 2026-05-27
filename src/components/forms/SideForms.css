@@ -23,7 +23,7 @@ form.hidden {
 
 input,
 textarea {
-  padding: 4px 12px;
+  padding: var(--btn-padding);
   border-radius: var(--card-radious);
   border: none;
   background-color: var(--bg-color);

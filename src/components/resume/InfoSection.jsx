@@ -13,7 +13,12 @@ export function InfoSection({ entries, sectionType }) {
           entries.map((entry) => {
             const groupOne = (
               <>
-                <p>{entry.studyDate}</p>
+                <div className="date">
+                  <p>{entry.fromDate}</p>
+                  <span>-</span>
+                  <p>{entry.toDate}</p>
+                </div>
+                <p>{entry.location}</p>
               </>
             );
             const groupTwo = (
@@ -40,6 +45,7 @@ export function InfoSection({ entries, sectionType }) {
                   <span>-</span>
                   <p>{entry.toDate}</p>
                 </div>
+                <p>{entry.location}</p>
               </>
             );
             const groupTwo = (

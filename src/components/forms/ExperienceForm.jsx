@@ -1,6 +1,7 @@
 import { Form } from "../ui/Form";
 import { Input } from "../ui/Input";
 import { Textarea } from "../ui/Textarea";
+import { DateFormSection } from "./DateFormSection";
 
 export function ExperienceForm({ onSubmit, isActive, inputsData, onChange }) {
   function onInputChange(e) {
@@ -33,6 +34,14 @@ export function ExperienceForm({ onSubmit, isActive, inputsData, onChange }) {
         onChange={onInputChange}
         required
       ></Input>
+      <Input
+        label={"Work Location"}
+        placeholder={"Miami FL"}
+        id={"input-work-location"}
+        name={"location"}
+        value={inputsData.location}
+        onChange={onInputChange}
+      ></Input>
       <Textarea
         label={"Main Responsibilities:"}
         id={"txtarea-respon"}
@@ -40,8 +49,7 @@ export function ExperienceForm({ onSubmit, isActive, inputsData, onChange }) {
         value={inputsData.mainResp}
         onChange={onInputChange}
       />
-      <fieldset>
-        <legend>Date you worked on:</legend>
+      <DateFormSection legendText={'Date you worked on'}>
         <Input
           label={"From:"}
           id={"input-from-date"}
@@ -58,7 +66,7 @@ export function ExperienceForm({ onSubmit, isActive, inputsData, onChange }) {
           onChange={onInputChange}
           type="date"
         ></Input>
-      </fieldset>
+      </DateFormSection>
     </Form>
   );
 }

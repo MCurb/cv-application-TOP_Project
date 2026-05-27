@@ -1,5 +1,6 @@
 import { Form } from "../ui/Form";
 import { Input } from "../ui/Input";
+import { DateFormSection } from "./DateFormSection";
 
 export function EducForm({ onSubmit, isActive, inputsData, onChange }) {
   function onInputChange(e) {
@@ -33,13 +34,31 @@ export function EducForm({ onSubmit, isActive, inputsData, onChange }) {
         required
       ></Input>
       <Input
-        label={"Study Date:"}
-        value={inputsData.studyDate}
-        id={"input-study-date"}
-        name={"studyDate"}
+        label={"School Location"}
+        placeholder={"Louisville KY"}
+        id={"input-school-location"}
+        name={"location"}
+        value={inputsData.location}
         onChange={onInputChange}
-        type="date"
       ></Input>
+      <DateFormSection legendText={'Date you studied on'}>
+        <Input
+          label={"From:"}
+          id={"input-study-from-date"}
+          name={"fromDate"}
+          value={inputsData.fromDate}
+          onChange={onInputChange}
+          type="date"
+        ></Input>
+        <Input
+          label={"To:"}
+          id={"input-study-to-date"}
+          name={"toDate"}
+          value={inputsData.toDate}
+          onChange={onInputChange}
+          type="date"
+        ></Input>
+      </DateFormSection>
     </Form>
   );
 }

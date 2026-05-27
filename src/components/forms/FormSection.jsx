@@ -8,7 +8,9 @@ export function FormSection({ sectionType, entries, onSubmit }) {
   const educInitData = {
     schoolName: "",
     title: "",
-    studyDate: "",
+    location: "",
+    fromDate: "",
+    toDate: "",
   };
   const [educInputs, setEducInputs] = useState(educInitData);
 
@@ -16,6 +18,7 @@ export function FormSection({ sectionType, entries, onSubmit }) {
     id: crypto.randomUUID(),
     companyName: "",
     positionTitle: "",
+    location: "",
     mainResp: "",
     fromDate: "",
     toDate: "",
