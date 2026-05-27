@@ -1,34 +1,62 @@
 .resume-cont {
-    display: flex;
-    flex-direction: column;
-    padding: var(--section-padding);
-    background-color: var(--card-bg);
+  --resume-padding: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--resume-padding);
+  background-color: var(--card-bg);
 }
 
 .resume-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: var(--accent-color);
-    margin-top: calc(var(--section-padding) * -1);
-    margin-right: calc(var(--section-padding) * -1);
-    margin-left: calc(var(--section-padding) * -1);
-    padding: var(--section-padding);
-    color: var(--txt-light)
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--accent-color);
+  margin-top: calc(var(--resume-padding) * -1);
+  margin-right: calc(var(--resume-padding) * -1);
+  margin-left: calc(var(--resume-padding) * -1);
+  padding: var(--resume-padding);
+  color: var(--txt-light);
 }
 
 .resume-header .main-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: -5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: -5px;
 }
 
 .resume-header .contact-info > * {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .contact-info svg {
-    flex-shrink: 0;
+  flex-shrink: 0;
+}
+
+.resume-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resume-card {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.resume-card .group-one,
+.resume-card .group-two {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-card .group-two {
+    flex: 1;
+}
+
+.resume-card .date {
+  display: flex;
+  gap: 6px;
 }

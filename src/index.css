@@ -5,9 +5,13 @@
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
+/* 2. Remove default margin and padding */
 *:not(dialog) {
   margin: 0;
+}
+
+ul {
+  padding: 0;
 }
 
 /* 3. Enable keyword animations */
@@ -73,3 +77,4 @@ h6 {
 #__next {
   isolation: isolate;
 }
+

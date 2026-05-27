@@ -6,28 +6,57 @@ export function InfoSection({ entries, sectionType }) {
     work: "Professional Experience",
   };
   return (
-    <section className="resume-form">
+    <section className="resume-section">
       <h2>{sectionTitle[sectionType]}</h2>
-      <ul>
+      <ul className="resume-cards-wrapper">
         {sectionType === "education" &&
-          entries.map((entry) => (
-            <Card key={entry.id}>
-              <p>School Name: {entry.schoolName}</p>
-              <p>Title: {entry.title}</p>
-              <p>Study Date: {entry.studyDate}</p>
-            </Card>
-          ))}
+          entries.map((entry) => {
+            const groupOne = (
+              <>
+                <p>{entry.studyDate}</p>
+              </>
+            );
+            const groupTwo = (
+              <>
+                <p>{entry.schoolName}</p>
+                <p>{entry.title}</p>
+              </>
+            );
+            return (
+              <Card
+                groupOne={groupOne}
+                groupTwo={groupTwo}
+                key={entry.id}
+              ></Card>
+            );
+          })}
 
         {sectionType === "work" &&
-          entries.map((entry) => (
-            <Card key={entry.id}>
-              <p>Company Name: {entry.companyName}</p>
-              <p>Job Title: {entry.positionTitle}</p>
-              <p>Main Responsibilities: {entry.mainResp}</p>
-              <p>From: {entry.fromDate}</p>
-              <p>To: {entry.toDate}</p>
-            </Card>
-          ))}
+          entries.map((entry) => {
+            const groupOne = (
+              <>
+                <div className="date">
+                  <p>{entry.fromDate}</p>
+                  <span>-</span>
+                  <p>{entry.toDate}</p>
+                </div>
+              </>
+            );
+            const groupTwo = (
+              <>
+                <p>{entry.companyName}</p>
+                <p>{entry.positionTitle}</p>
+                <p>{entry.mainResp}</p>
+              </>
+            );
+            return (
+              <Card
+                groupOne={groupOne}
+                groupTwo={groupTwo}
+                key={entry.id}
+              ></Card>
+            );
+          })}
       </ul>
     </section>
   );
