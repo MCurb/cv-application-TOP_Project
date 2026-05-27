@@ -43,7 +43,7 @@ h2 {
   font-size: 24px;
 }
 
-p, label {
+p, label, input, ::placeholder {
   font-family: var(--text-font);
 }
 
