@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { SideForms } from "./components/forms/SideForms";
 import { Resume } from "./components/resume/Resume";
+import { Analytics } from "@vercel/analytics/react";
 
 const initGnralInfo = {
   id: crypto.randomUUID(),
@@ -107,6 +108,7 @@ function App() {
         education={education}
         workExp={workExp}
       ></Resume>
+      <Analytics></Analytics>
     </>
   );
 }
