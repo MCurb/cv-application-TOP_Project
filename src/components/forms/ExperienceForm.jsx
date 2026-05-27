@@ -3,7 +3,7 @@ import { Input } from "../ui/Input";
 import { Textarea } from "../ui/Textarea";
 import { DateFormSection } from "./DateFormSection";
 
-export function ExperienceForm({ onSubmit, isActive, inputsData, onChange }) {
+export function ExperienceForm({ onSubmit, inputsData, onChange }) {
   function onInputChange(e) {
     const { name, value } = e.target;
     onChange({ ...inputsData, [name]: value });
@@ -15,7 +15,7 @@ export function ExperienceForm({ onSubmit, isActive, inputsData, onChange }) {
   }
 
   return (
-    <Form isActive={isActive} onSubmit={handleFormSubmit}>
+    <Form onSubmit={handleFormSubmit}>
       <Input
         label={"Company Name:"}
         placeholder={"Google"}

@@ -1,7 +1,7 @@
 import { Form } from "../ui/Form";
 import { Input } from "../ui/Input";
 
-export function GralForm({ onSubmit, isActive, inputsData, onChange }) {
+export function GralForm({ onSubmit, inputsData, onChange }) {
   function onInputChange(e) {
     const { name, value } = e.target;
     onChange({ ...inputsData, [name]: value });
@@ -13,7 +13,7 @@ export function GralForm({ onSubmit, isActive, inputsData, onChange }) {
   }
 
   return (
-    <Form isActive={isActive} onSubmit={handleFormSubmit}>
+    <Form onSubmit={handleFormSubmit}>
       <Input
         label={"Full Name"}
         placeholder={"Marcos Curbeco"}

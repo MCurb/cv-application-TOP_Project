@@ -3,9 +3,9 @@
   font-weight: 700;
 }
 
-.poppins-600 {
+.poppins-500 {
   font-family: var(--heading-font);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .inter-500 {
@@ -46,6 +46,17 @@
   margin-top: -5px;
 }
 
+.resume-header .main-info p {
+  font-size: 24px;
+}
+
+.resume-header .contact-info {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .resume-header .contact-info > * {
   display: flex;
   align-items: center;
@@ -56,6 +67,18 @@
   flex-shrink: 0;
 }
 
+.resume-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resume-section .section-heading {
+  padding: var(--btn-padding);
+  border-radius: var(--card-radious);
+  background-color: var(--bg-color);
+}
+
 .resume-cards-wrapper {
   display: flex;
   flex-direction: column;
@@ -64,22 +87,29 @@
 
 .resume-card {
   display: flex;
+  align-items: baseline;
   gap: var(--resume-gap);
   flex-wrap: wrap;
 }
 
 .resume-card .group-one,
 .resume-card .group-two {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  font-family: var(--text-font);
+}
+
+.resume-card .group-one {
+  font-size: 14px;
 }
 
 .resume-card .group-two {
-  flex: 1;
+  gap: 4px;
 }
 
 .resume-card .date {
   display: flex;
   align-items: baseline;
-  gap: 6px;
+  gap: 4px;
 }

@@ -16,23 +16,37 @@
 
 #root {
   display: flex;
+  gap: var(--section-padding);
   flex-wrap: wrap;
   background-color: var(--bg-color);
   padding: var(--section-padding);
 }
 
-.hidden {
-  display: block;
-}
-
-.visible {
-  display: block;
-}
-
 .sidebar {
-    flex: 1;
+  flex: 1;
 }
 
 .resume-cont {
-    flex: 4;
+  flex: 4;
+}
+
+h1,
+h2 {
+  font-family: var(--heading-font);
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+p, label {
+  font-family: var(--text-font);
+}
+
+button {
+  font-family: var(--heading-font);
 }

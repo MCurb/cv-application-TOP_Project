@@ -3,15 +3,15 @@ export function ResumeHeader({ generalInfo }) {
     <header className="resume-header">
       <div className="contact-info">
         <div className="email-info">
-          <ContactIcons icon={"email"} size="18px" />
+          <ContactIcons icon={"email"} size="16px" />
           <p>{generalInfo.email}</p>
         </div>
         <div className="number-info">
-          <ContactIcons icon={"phone"} size="18px" />
+          <ContactIcons icon={"phone"} size="16px" />
           <p>{generalInfo.number}</p>
         </div>
         <div className="location-info">
-          <ContactIcons icon={"location"} size="18px" />
+          <ContactIcons icon={"location"} size="16px" />
           <p>{generalInfo.location}</p>
         </div>
       </div>
