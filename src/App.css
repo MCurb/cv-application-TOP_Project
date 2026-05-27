@@ -9,6 +9,9 @@
   --btn-padding: 4px 16px;
   --section-padding: 1.25rem;
   --items-gap: 12px;
+
+  --heading-font: "Poppins", sans-serif;
+  --text-font: "Inter", sans-serif;
 }
 
 #root {

@@ -14,17 +14,23 @@ export function InfoSection({ entries, sectionType }) {
             const groupOne = (
               <>
                 <div className="date">
-                  <p>{entry.fromDate}</p>
+                  <p className="inter-500" style={{ fontSize: "14px" }}>
+                    {entry.fromDate}
+                  </p>
                   <span>-</span>
-                  <p>{entry.toDate}</p>
+                  <p className="inter-500" style={{ fontSize: "14px" }}>
+                    {entry.toDate}
+                  </p>
                 </div>
-                <p>{entry.location}</p>
+                <p className="inter-500" style={{ fontSize: "14px" }}>
+                  {entry.location}
+                </p>
               </>
             );
             const groupTwo = (
               <>
-                <p>{entry.schoolName}</p>
-                <p>{entry.title}</p>
+                <p className="poppins-700" style={{fontSize:'32px'}}>{entry.schoolName}</p>
+                <p className="poppins-600" style={{fontSize:'22px'}}>{entry.title}</p>
               </>
             );
             return (

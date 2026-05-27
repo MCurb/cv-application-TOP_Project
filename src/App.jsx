@@ -17,13 +17,17 @@ const initEducation = [
     id: crypto.randomUUID(),
     schoolName: "MIT",
     title: "Software Engineer",
-    studyDate: "01/02/2009",
+    location: "Miami FL",
+    fromDate: "02-28-2004",
+    toDate: "05-24-2008",
   },
   {
     id: crypto.randomUUID(),
     schoolName: "Harvard",
     title: "Chemist",
-    studyDate: "18/07/2005",
+    location: "San Francisco CA",
+    fromDate: "02-05-2004",
+    toDate: "05-08-2008",
   },
 ];
 
@@ -32,17 +36,19 @@ const initWorkExp = [
     id: crypto.randomUUID(),
     companyName: "Google",
     positionTitle: "Front-End",
+    location: 'Louisville KY',
     mainResp: "- Create better apps",
-    fromDate: "25/08/2002",
-    toDate: "25/08/2009",
+    fromDate: "02-05-2004",
+    toDate: "02-05-2010",
   },
   {
     id: crypto.randomUUID(),
     companyName: "Facebook",
     positionTitle: "Back-End",
+    location: 'Louisville KY',
     mainResp: "- Create stronger apps",
-    fromDate: "18/07/2005",
-    toDate: "18/07/2009",
+    fromDate: "02-05-2004",
+    toDate: "02-05-2010",
   },
 ];
 
