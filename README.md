@@ -1,16 +1,68 @@
-# React + Vite
+# 📄 CV Application Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive **CV / Resume Builder application** built with React and Vite.
 
-Currently, two official plugins are available:
+The main goal of this project was to **learn the fundamentals of React**, understand how data flows between components, and practice building reusable and interactive UI components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
 
-## React Compiler
+🌍 **Visit the application:**  
+👉 https://cv-application-top-project.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- ⚛️ Built with React + Vite
+- 🧩 Reusable React components
+- 📝 Controlled form components
+- 🔄 Real-time CV preview updates
+- 📤 Shared state between components
+- 📱 Responsive layout for different screen sizes
+- ⚡ Fast development environment with Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Tech Stack
+
+- React
+- Vite
+- JavaScript (ES6+)
+- CSS3
+
+## 🧠 What I Learned
+
+- How to create and structure React components
+- How to manage state using the `useState` hook
+- How to pass and consume data with props
+- How to create reusable UI components
+- How controlled components work in forms
+- How to share and update data between components
+- How to think in React:
+  - Starting with mock-up data
+  - Planning how data flows through the application
+  - Deciding which components should consume state
+  - Deciding which components should update state
+  - Building a connected system of components instead of isolated pieces
+
+## 📸 Screenshots
+
+### 🖥️ Main Application
+![Main Application](https://github.com/user-attachments/assets/f843c5eb-5ead-47f5-8a51-e0733d0a9beb)
+
+## Acknowledgements
+
+- 📄 Application favicon created by Fajrul Fitrianto - Flaticon  
+  https://www.flaticon.com/free-icons/application-form
+
+- 📘 The Odin Project  
+  https://www.theodinproject.com/
+
+- 📚 MDN Web Docs  
+  https://developer.mozilla.org/
+
+## License
+
+This project is licensed under the MIT License.
+
+## Author
+
+**Marcos Curbeco**  
+[The Odin Project Student](https://www.theodinproject.com/) | Web Developer in Progress
+
