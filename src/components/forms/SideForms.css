@@ -64,6 +64,12 @@ label {
   color: hsl(0, 0%, 40%);
 }
 
+.form-section .min-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--items-gap);
+}
+
 .form-section .min-card {
   display: flex;
   justify-content: space-between;

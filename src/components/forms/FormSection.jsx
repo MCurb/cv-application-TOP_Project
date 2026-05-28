@@ -1,37 +1,38 @@
 import { useState } from "react";
-import { MinCard } from "../ui/MinCard";
 import { GralForm } from "./GralForm";
 import { EducForm } from "./EducForm";
 import { ExperienceForm } from "./ExperienceForm";
+import { MinCardsList } from "./MinCardsList";
+
+const educInitData = {
+  schoolName: "",
+  title: "",
+  location: "",
+  fromDate: "",
+  toDate: "",
+};
+
+const workInitData = {
+  id: crypto.randomUUID(),
+  companyName: "",
+  positionTitle: "",
+  location: "",
+  mainResp: "",
+  fromDate: "",
+  toDate: "",
+};
+
+const gralInfoInitData = {
+  fullName: "",
+  requestedPosit: "",
+  email: "",
+  number: "",
+  location: "",
+};
 
 export function FormSection({ sectionType, entries, onSubmit }) {
-  const educInitData = {
-    schoolName: "",
-    title: "",
-    location: "",
-    fromDate: "",
-    toDate: "",
-  };
   const [educInputs, setEducInputs] = useState(educInitData);
-
-  const workInitData = {
-    id: crypto.randomUUID(),
-    companyName: "",
-    positionTitle: "",
-    location: "",
-    mainResp: "",
-    fromDate: "",
-    toDate: "",
-  };
   const [workExpInputs, setWorkExpInputs] = useState(workInitData);
-
-  const gralInfoInitData = {
-    fullName: "",
-    requestedPosit: "",
-    email: "",
-    number: "",
-    location: "",
-  };
   const [gralInfoInputs, setGralInfoInputs] = useState(gralInfoInitData);
 
   const sectionTitle = {
@@ -40,18 +41,18 @@ export function FormSection({ sectionType, entries, onSubmit }) {
     work: "Experience",
   };
 
-  const isIterable = Array.isArray(entries);
+  const entryIsIterable = Array.isArray(entries);
 
   function handleFormSubmit(inputData) {
     setEducInputs(educInitData);
     setWorkExpInputs(workInitData);
 
-    if (!isIterable) {
+    if (!entryIsIterable) {
       onSubmit({ ...entries, ...inputData });
       return;
     }
 
-    const objectExists = entries.find((entry) => inputData.id === entry.id);
+    const objectExists = entries.some((entry) => inputData.id === entry.id);
     if (!objectExists) {
       onSubmit([...entries, { id: crypto.randomUUID(), ...inputData }]);
       return;
@@ -82,28 +83,15 @@ export function FormSection({ sectionType, entries, onSubmit }) {
     <>
       <div className="form-section">
         <h2>{sectionTitle[sectionType]}</h2>
-        {isIterable &&
-          sectionType === "education" &&
-          entries.map((entry) => (
-            <MinCard
-              key={entry.id}
-              onEdit={handleEditBtn}
-              onDelete={handleDeleteBtn}
-              cardTitle={entry.schoolName}
-              id={entry.id}
-            />
-          ))}
-        {isIterable &&
-          sectionType === "work" &&
-          entries.map((entry) => (
-            <MinCard
-              key={entry.id}
-              onEdit={handleEditBtn}
-              onDelete={handleDeleteBtn}
-              cardTitle={entry.companyName}
-              id={entry.id}
-            />
-          ))}
+
+        {entryIsIterable && (
+          <MinCardsList
+            sectionType={sectionType}
+            entries={entries}
+            onEdit={handleEditBtn}
+            onDelete={handleDeleteBtn}
+          ></MinCardsList>
+        )}
 
         {sectionType === "generalInfo" && (
           <GralForm

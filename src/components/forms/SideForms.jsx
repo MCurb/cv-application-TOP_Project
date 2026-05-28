@@ -9,23 +9,25 @@ export function SideForms({
   onEducationSubmit,
   onWorkExpSubmit,
 }) {
+  const stateData = {
+    generalInfo: [generalInfo, onGralFormSubmit],
+    education: [education, onEducationSubmit],
+    work: [workExp, onWorkExpSubmit],
+  };
+
   return (
     <aside className="sidebar">
-      <FormSection
-        sectionType={"generalInfo"}
-        entries={generalInfo}
-        onSubmit={onGralFormSubmit}
-      ></FormSection>
-      <FormSection
-        sectionType={"education"}
-        entries={education}
-        onSubmit={onEducationSubmit}
-      ></FormSection>
-      <FormSection
-        sectionType={"work"}
-        entries={workExp}
-        onSubmit={onWorkExpSubmit}
-      ></FormSection>
+      {Object.entries(stateData).map(([dataGroup, data], i) => {
+        const [state, setState] = data;
+        return (
+          <FormSection
+            key={i}
+            sectionType={dataGroup}
+            entries={state}
+            onSubmit={setState}
+          ></FormSection>
+        );
+      })}
     </aside>
   );
 }
