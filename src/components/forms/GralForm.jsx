@@ -1,7 +1,7 @@
 import { Form } from "../ui/Form";
 import { Input } from "../ui/Input";
 
-export function GralForm({ onSubmit, inputsData, onChange }) {
+export function GeneralForm({ onSubmit, inputsData, onChange }) {
   function onInputChange(e) {
     const { name, value } = e.target;
     onChange({ ...inputsData, [name]: value });

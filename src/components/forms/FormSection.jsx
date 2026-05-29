@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GralForm } from "./GralForm";
+import { GeneralForm } from "./GralForm";
 import { EducForm } from "./EducForm";
 import { ExperienceForm } from "./ExperienceForm";
 import { MinCardsList } from "./MinCardsList";
@@ -41,23 +41,27 @@ export function FormSection({ sectionType, entries, onSubmit }) {
     work: "Experience",
   };
 
-  const entryIsIterable = Array.isArray(entries);
+  const isEntryIterable = Array.isArray(entries);
 
   function handleFormSubmit(inputData) {
+    // Refresh Forms
     setEducInputs(educInitData);
     setWorkExpInputs(workInitData);
 
-    if (!entryIsIterable) {
+    // Is Personal Details Obj
+    if (!isEntryIterable) {
       onSubmit({ ...entries, ...inputData });
       return;
     }
 
+    // Edit Info
     const objectExists = entries.some((entry) => inputData.id === entry.id);
     if (!objectExists) {
       onSubmit([...entries, { id: crypto.randomUUID(), ...inputData }]);
       return;
     }
 
+    // Add New Info
     const updatedEntries = entries.map((entry) =>
       entry.id !== inputData.id ? entry : { ...entry, ...inputData },
     );
@@ -84,7 +88,7 @@ export function FormSection({ sectionType, entries, onSubmit }) {
       <div className="form-section">
         <h2>{sectionTitle[sectionType]}</h2>
 
-        {entryIsIterable && (
+        {isEntryIterable && (
           <MinCardsList
             sectionType={sectionType}
             entries={entries}
@@ -94,11 +98,11 @@ export function FormSection({ sectionType, entries, onSubmit }) {
         )}
 
         {sectionType === "generalInfo" && (
-          <GralForm
+          <GeneralForm
             inputsData={gralInfoInputs}
             onChange={setGralInfoInputs}
             onSubmit={handleFormSubmit}
-          ></GralForm>
+          ></GeneralForm>
         )}
         {sectionType === "education" && (
           <EducForm
